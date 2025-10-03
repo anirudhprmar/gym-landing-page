@@ -2,14 +2,14 @@ import React from 'react'
 
 export default function Footer() {
   return (
-    <footer className='pb-5'>
-      <div className='flex flex-col md:flex-row gap-10 md:gap-20 p-10 justify-around bg-zinc-900 text-zinc-100'>
+    <footer className='pb-5 bg-zinc-800'>
+      <div className='flex flex-col md:flex-row gap-10 md:gap-20 p-10 justify-around  text-zinc-100'>
         <div>
           {/* join us and address */}
           <h5 className='text-3xl text-zinc-50 font-bold'>JOIN US NOW.</h5>
           <div className='flex flex-col gap-2 mt-5 bg-zinc-50 text-zinc-900 rounded-md p-5'>
-            <p className='font-bold'>Contact: <span className='font-light'>2929292929</span> </p>
-            <p className='font-bold'>Address: <span className='font-light'>Near modal town</span> </p>
+            <p className='font-bold'>Contact: <span className='font-light'>092000 05777</span> </p>
+            <p className='font-bold max-w-xs'>Address: <span className='font-light'>C-n-C House, Sirol Main Rd, opposite Well Home Decor, near Green Mart, New City Center, Gwalior, Madhya Pradesh 474006</span> </p>
           </div>
         </div>
         <div>
@@ -23,25 +23,25 @@ export default function Footer() {
         <div className='flex flex-col gap-5'>
           {/* image / logo */}
           <p className='font-bold text-2xl'>CRUNCHES & CURVES</p>
-          <p className='text-sm '>
+          <p className='text-sm max-w-xs'>
             {/* address */}
-            Near modal town, Gwalior, Madhya Pradesh
+            C-n-C House, Sirol Main Rd, opposite Well Home Decor, near Green Mart, New City Center, Gwalior, Madhya Pradesh 474006
           </p>
         </div>
 
         <div className='flex flex-col md:flex-row gap-10 md:gap-20'>
-          <div>
+          <div className='flex flex-col gap-5'>
             <p className='font-semibold'>CONTACT US</p>
             <ul>
-              <li>+91 23224242424</li>
+              <li>+91 092000 05777</li>
             </ul>
           </div>
 
-          <div>
+          <div className='flex flex-col gap-5'>
             <p className='font-semibold'>OPERATIONAL</p>
             <ul>
-              <li>MON-FRI : 9Am to 9Pm</li>
-              <li>SAT & SUN: 9Am to 12Pm</li>
+              <li>MON-SAT: 6Am - 9Pm</li>
+              <li>SUN: CLOSED</li>
             </ul>
           </div>
           
