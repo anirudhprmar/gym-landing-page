@@ -8,7 +8,7 @@ export default function Gallery() {
   return (
     <div className='max-w-300 min-w-full min-h-screen mx-auto py-20 px-4 bg-zinc-800 text-zinc-50 flex flex-col gap-10'>
       <div>
-        <h2 className='text-3xl text-center p-2'>Gallery</h2>
+        <h2 className='text-3xl text-center p-2'>About Us</h2>
       </div>
       <div className='flex flex-col lg:flex-row gap-10 lg:gap-20 items-center justify-center'>
         <ImageSlider />
