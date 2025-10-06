@@ -2,6 +2,7 @@
 import Link from "next/link";
 import { Button } from "./ui/button";
 import { useEffect, useState } from "react";
+import Image from "next/image";
 
 export default function Navbar() {
       const [hasScrolled, setHasScrolled] = useState(false);
@@ -28,14 +29,21 @@ export default function Navbar() {
     <header>
       <nav className={`flex items-center justify-around p-3 fixed top-0 min-w-full z-10 text-zinc-100 ${hasScrolled ? ' bg-transparent backdrop-blur-md ' : ''}`}>
         
-        <div>
-            <p className="text-xl">CnC</p>
+        <div className="flex items-center gap-2">
+          <Image
+          src={'/logo.webp'}
+          height={90}
+          width={90}
+          alt="logo"
+          className="w-15 h-10 object-cover rounded-none"
+          />
+            <p className="text-xl cursor-pointer font-bold">C-n-C</p>
         </div>
 
         <ul className="hidden md:flex gap-10 text-md items-center justify-center">
-            <li>Gallery</li>
-            <li>About Us</li>
-            <li>Testimonials</li>
+            <li className="cursor-pointer">About Us</li>
+            <li className="cursor-pointer">Programs</li>
+            <li className="cursor-pointer">Testimonials</li>
             {/* <li></li    > */}
         </ul>
 

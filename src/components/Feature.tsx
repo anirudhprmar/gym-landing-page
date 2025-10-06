@@ -6,7 +6,7 @@ export default function Feature() {
   return (
     <div className='flex flex-col gap-20 p-20 bg-zinc-800 text-zinc-100 justify-center min-h-full items-stretch '>
       <div className=' gap-4 text-center'>
-        <h3 className='text-3xl'>Best Programs for You</h3>
+        <h3 className='text-3xl font-bold'>Best Programs for You</h3>
       </div>
       <div className=' grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10'>
 

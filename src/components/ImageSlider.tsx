@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 
 export default function ImageSlider() {
     // button to scroll left and right 
-  const imagesUrl = [
+  const images = [
         'https://163jz9wo57.ufs.sh/f/LDDo8gC5wt4WRqWCjSpJlDntNUcbY0GVyoer7FaQwTW4g6dZ',
         'https://163jz9wo57.ufs.sh/f/LDDo8gC5wt4Wx5YwVGMolMhgkbv7f6CTnQWrF2SJ8ZIpKPXL',
         "https://163jz9wo57.ufs.sh/f/LDDo8gC5wt4W2KNd1wy9jcPzDYrpnuKVFAvkhQg3mSolBsRW",
@@ -21,7 +21,7 @@ export default function ImageSlider() {
         "https://163jz9wo57.ufs.sh/f/LDDo8gC5wt4WOiVUUXw4vTkzeXb3pfCEw4gQt0aNWUS6PcBM",
         "https://163jz9wo57.ufs.sh/f/LDDo8gC5wt4Wo8W5umJoKJD9UQWTctZFdL0sgzpXNk8mn6HS"
     ]
-    const [images, setImages] = useState<string[]>(imagesUrl);
+    // const [images, setImages] = useState<string[]>(imagesUrl);
     const [currentIndex, setCurrentIndex] = useState(0);
     // map through images and display them in a horizontal scrollable div
     const handlePrev = () => {
@@ -49,15 +49,22 @@ export default function ImageSlider() {
   return (
     <div className="max-h-fit flex items-center justify-center gap-4 ">
         <button onClick={handlePrev} className="p-2 bg-yellow-50 text-black rounded-full"><ArrowLeft/></button>
-      <div className="relative w-120 h-150 overflow-hidden bg-yellow-200  rounded-md flex items-center justify-center">
-        <Image
-        key={images[currentIndex]}
-        src={images[currentIndex]}
-        width={400} // set your desired width
-        height={400} // set your desired height
+      <div className="relative w-120 h-150 overflow-hidden bg-yellow-200  rounded-md flex ">
+   <div
+    className="flex transition-transform duration-300 ease-in-out"
+    style={{ transform: `translateX(-${currentIndex * 100}%)` }}
+  >
+    {images.map((img, index) => (
+      <Image
+        key={index}
+        src={img}
+        width={400}
+        height={400}
         alt="gym image"
-        className="object-fill object-center  w-fit h-full "
+        className="object-center  w-full h-full shrink-0 grow-0"
       />
+    ))}
+  </div>
       </div>
         <button onClick={handleNext} className="p-2 bg-yellow-50 text-black rounded-full"><ArrowRight/></button>
     </div>

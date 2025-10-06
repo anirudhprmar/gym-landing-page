@@ -16,7 +16,7 @@ export default function Testemonials() {
 
       <div className="flex gap-4 items-center justify-center">
          <AvatarCircles
-          numPeople={30}
+          numPeople={90}
           avatarUrls={[
             {
               imageUrl: "https://lh3.googleusercontent.com/a-/ALV-UjVHQH9BE0aHBU8FloxGfD-DQR05vbFZBdrz0wXl0hLp0s11GTr4=w90-h90-p-rp-mo-ba2-br100",

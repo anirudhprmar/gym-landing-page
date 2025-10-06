@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import React from 'react'
 
 export default function Footer() {
@@ -22,7 +23,17 @@ export default function Footer() {
         {/* footer with links */}
         <div className='flex flex-col gap-5'>
           {/* image / logo */}
-          <p className='font-bold text-2xl'>CRUNCHES & CURVES</p>
+          <div className='flex items-center gap-2'>
+             <Image
+                    src={'/logo.webp'}
+                    height={90}
+                    width={90}
+                    alt="logo"
+                    className="w-20 h-15 object-cover rounded-none"
+                    />
+          <p className='font-bold text-2xl'>Crunch-N-Curves</p>
+
+          </div>
           <p className='text-sm max-w-xs'>
             {/* address */}
             C-n-C House, Sirol Main Rd, opposite Well Home Decor, near Green Mart, New City Center, Gwalior, Madhya Pradesh 474006
