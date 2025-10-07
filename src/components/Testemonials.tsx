@@ -7,9 +7,9 @@ export default function Testemonials() {
     <div className="w-full min-h-screen bg-zinc-800 text-zinc-50 flex flex-col md:flex-row items-center justify-center gap-10 py-10 relative">
       <div className="flex flex-col items-center justify-around gap-10">
 
-      <div className="flex flex-col items-center justify-center gap-4">
+      <div className="flex flex-col items-center justify-center gap-4 max-w-90 md:max-w-full text-center">
 
-        <h4 className="text-3xl font-bold">
+        <h4 className="text-3xl md:text-5xl font-bold">
           What our Clients Say About Us
         </h4>
         <p className=" text-md max-w-100 ">Dont just take our word listen to what others have to say</p>
@@ -38,13 +38,13 @@ export default function Testemonials() {
 
       </div>
 
-      <div>
+      <div className="hidden lg:block">
         <Image
         src={'/arrow.svg'}
         alt="arrow"
         width={100}
         height={100}
-        className=" opacity-10 rotate absolute bottom-40 right-[45%]"
+        className=" opacity-10 rotate absolute bottom-40 right-140"
         />
       </div>
       <div className="bg-zinc-600 w-80 h-80 p-6 rounded-lg flex flex-col items-start justify-around gap-4  hover:scale-105 transition-transform duration-300 ease-in-out">

@@ -8,13 +8,17 @@ import Testemonials from "@/components/Testemonials";
 
 export default async  function Home() {
   return (
-    <>
-    <Navbar/>
-    <Hero/>
+    <div className="flex flex-col min-h-screen w-full items-center justify-center ">
+
+    <div className="flex flex-col min-h-screen w-full justify-center">
+      <Navbar/>
+      <Hero/>
+    </div>
+
     <Gallery/>
     <Feature/>
     <Testemonials/>
     <Footer/>
-    </>
+    </div>
   );
 }

@@ -27,7 +27,7 @@ export default function Navbar() {
 
   return (
     <header>
-      <nav className={`flex items-center justify-around p-3 fixed top-0 min-w-full z-10 text-zinc-100 ${hasScrolled ? ' bg-transparent backdrop-blur-md ' : ''}`}>
+      <nav className={`flex items-center justify-around p-3 fixed top-0 w-full z-200 text-zinc-100 ${hasScrolled ? ' bg-transparent backdrop-blur-md ' : ''}`}>
         
         <div className="flex items-center gap-2">
           <Image
@@ -37,7 +37,7 @@ export default function Navbar() {
           alt="logo"
           className="w-15 h-10 object-cover rounded-none"
           />
-            <p className="text-xl cursor-pointer font-bold">C-n-C</p>
+            <p className="text-2xl cursor-pointer font-bold">C-n-C</p>
         </div>
 
         <ul className="hidden md:flex gap-10 text-md items-center justify-center">
@@ -48,8 +48,8 @@ export default function Navbar() {
         </ul>
 
         <div>
-            <Button size={'lg'} variant={'default'} className="bg-yellow-200 hover:bg-yellow-300 border-0">
-                <Link href={"#"} className="text-zinc-900">
+            <Button size={'sm'} variant={'default'} className="bg-yellow-200 hover:bg-yellow-300 border-0">
+                <Link href={"#"} className="text-zinc-900 text-lg">
                 JOIN NOW
                 </Link>
             </Button>
