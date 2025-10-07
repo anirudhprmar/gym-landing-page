@@ -1,11 +1,11 @@
 "use client"
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import Image from "next/image";
-import { useEffect, useState } from "react";
+import { useEffect, useState,useMemo } from "react";
 
 export default function ImageSlider() {
-    // button to scroll left and right 
-  const images = [
+
+  const images = useMemo(() => [
         'https://163jz9wo57.ufs.sh/f/LDDo8gC5wt4WRqWCjSpJlDntNUcbY0GVyoer7FaQwTW4g6dZ',
         'https://163jz9wo57.ufs.sh/f/LDDo8gC5wt4Wx5YwVGMolMhgkbv7f6CTnQWrF2SJ8ZIpKPXL',
         "https://163jz9wo57.ufs.sh/f/LDDo8gC5wt4W2KNd1wy9jcPzDYrpnuKVFAvkhQg3mSolBsRW",
@@ -20,7 +20,7 @@ export default function ImageSlider() {
         "https://163jz9wo57.ufs.sh/f/LDDo8gC5wt4WZrYbTA9QSp80aY9r4wU7yoLVsbxfhg6A3jXl",
         "https://163jz9wo57.ufs.sh/f/LDDo8gC5wt4WOiVUUXw4vTkzeXb3pfCEw4gQt0aNWUS6PcBM",
         "https://163jz9wo57.ufs.sh/f/LDDo8gC5wt4Wo8W5umJoKJD9UQWTctZFdL0sgzpXNk8mn6HS"
-    ]
+    ], []);
     // const [images, setImages] = useState<string[]>(imagesUrl);
     const [currentIndex, setCurrentIndex] = useState(0);
     // map through images and display them in a horizontal scrollable div
@@ -36,15 +36,15 @@ export default function ImageSlider() {
             return index + 1;
         })
     }
-    // useEffect(()=>{
-    //     setTimeout(() => {
-    //         if (currentIndex < images.length - 1) {
-    //             setCurrentIndex(currentIndex + 1);
-    //         }else{
-    //             setCurrentIndex(0);
-    //         }
-    //     }, 3000);
-    // },[images, currentIndex])
+    useEffect(()=>{
+        setTimeout(() => {
+            if (currentIndex < images.length - 1) {
+                setCurrentIndex(currentIndex + 1);
+            }else{
+                setCurrentIndex(0);
+            }
+        }, 3000);
+    },[images, currentIndex])
 
   return (
     <div className="max-h-fit flex items-center justify-center gap-4 ">
