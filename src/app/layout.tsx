@@ -22,7 +22,7 @@ export const metadata: Metadata = {
   },
   description: "Get fit at The Fitness Club – Gwalior’s best gym for strength, cardio, and wellness. Join today for expert training!",
   keywords: ['Gwalior fitness club','Best gym in Gwalior', 'Gym in Gwalior', 'Best Gym Gwalior', 'Fitness Center Gwalior', 'Personal Training Gwalior', 'Strength Training Gwalior', 'Cardio Workouts Gwalior', 'Wellness Programs Gwalior', 'Group Fitness Classes Gwalior', 'Health and Fitness Gwalior','Bodybuilding gym Gwalior','Women’s gym Gwalior','CrossFit gym Gwalior','Zumba classes Gwalior','Yoga studio Gwalior','Pilates classes Gwalior','Functional training Gwalior','HIIT workouts Gwalior','Nutritional counseling Gwalior','Weight loss programs Gwalior','Muscle building Gwalior'],
-    // metadataBase: new URL('https://hr-services-ten.vercel.app/'),
+    metadataBase: new URL('https://gym-six-sand.vercel.app/'),
   alternates: {
     canonical: '/',
   },
@@ -34,13 +34,13 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    // url: 'https://hr-services-ten.vercel.app/',
+    url: 'https://gym-six-sand.vercel.app/',
     title: 'Crunch-N-Curves - The Fitness Club Gwalior',
     description: 'Get fit at The Fitness Club – Gwalior’s best gym for strength, cardio, and wellness. Join today for expert training!',
     siteName: 'Crunch-N-Curves',
     images: [
       {
-        url: '/logo.webp',
+        url: 'https://163jz9wo57.ufs.sh/f/LDDo8gC5wt4WqdiFRKlKtaxomBOsGXE6S2dDACg197Qiprkl',
         width: 1200,
         height: 630,
         // alt: 'Careerspring Solutions HR Services',
@@ -72,7 +72,7 @@ export default function RootLayout({
   "@type": "Gym",
   "name": "Crunch-N-Curves - The Fitness Club Gwalior",
   "image": "https://163jz9wo57.ufs.sh/f/LDDo8gC5wt4WqdiFRKlKtaxomBOsGXE6S2dDACg197Qiprkl",
-  // "url": "https://thefitnessclubgw.com",
+  "url": "https://gym-six-sand.vercel.app/",
   "telephone": "+91-751-1234567",
   "priceRange": "₹₹",
   "description": "The Fitness Club | Best Gym in Gwalior offering strength training, cardio, group classes, personal training & wellness programs.",
