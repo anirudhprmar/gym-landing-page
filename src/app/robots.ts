@@ -7,6 +7,6 @@ export default function robot():MetadataRoute.Robots{
             allow:'/',
             disallow:[]
         },
-        sitemap:'https://www.crunchesncurves.com/sitemap.xml'
+        sitemap:'https://gym-six-sand.vercel.app/sitemap.xml'
     }
 }

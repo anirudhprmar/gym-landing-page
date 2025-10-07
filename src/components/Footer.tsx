@@ -1,9 +1,16 @@
+import { Facebook } from 'lucide-react'
 import Image from 'next/image'
-import React from 'react'
+import Link from 'next/link'
+import { ImageResponse } from 'next/server'
+import React, { RefObject } from 'react'
 
-export default function Footer() {
+interface refInfo{
+  footerRef?:RefObject<HTMLDivElement | null>
+}
+
+export default function Footer({footerRef}:refInfo) {
   return (
-    <footer className='p-5 bg-zinc-800 w-full'>
+    <footer className='p-5 bg-zinc-800 w-full' ref={footerRef}>
       <div className='flex flex-col md:flex-row gap-10 md:gap-20 p-10 justify-center  items-center md:items-stretch md:justify-around  text-zinc-100'>
         <div className='flex flex-col gap-5 items-center'>
           {/* join us and address */}
@@ -36,9 +43,22 @@ export default function Footer() {
 
           </div>
           <p className='text-sm max-w-xs'>
-            {/* address */}
-            C-n-C House, Sirol Main Rd, opposite Well Home Decor, near Green Mart, New City Center, Gwalior, Madhya Pradesh 474006
+           Follow us on our socials to stay updated with the latest news, offers, and fitness tips. Join our community and embark on your fitness journey with us!
           </p>
+
+          <ul className='flex flex-row gap-5 mt-5'>
+            <li>
+              <Link href={'https://www.facebook.com/crunchncurves/'} target='_blank' className='flex flex-row gap-2 items-center hover:underline'>
+              <Image src={'/facebook.svg'} height={25} width={25} alt='facebook logo'/>
+              </Link>
+            </li>
+            <li>
+              <Link href={'https://www.instagram.com/crunch_n_curves'} target='_blank' className='flex flex-row gap-2 items-center hover:underline'>
+              <Image src={'/instagram.svg'} height={25} width={25} alt='instagram logo'/>
+              </Link>
+            </li>
+           
+          </ul>
         </div>
 
         <div className='flex flex-col md:flex-row gap-10 md:gap-20'>

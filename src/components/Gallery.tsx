@@ -2,11 +2,28 @@ import Link from 'next/link'
 import ImageSlider from './ImageSlider'
 import { Button } from './ui/button'
 import { MoveRight } from 'lucide-react'
+import React, { RefObject } from 'react'
 
-export default function Gallery() {
+interface AboutProps {
+  scrollFunction:(ref: RefObject<HTMLElement | null>) => void;
+  refs: {
+    aboutRef?:RefObject<HTMLDivElement | null>
+  contactRef:RefObject<HTMLDivElement | null>
+  }
+}
+
+export default function Gallery({scrollFunction,refs}:AboutProps) {
+
+  const handleContactClick = (e:React.MouseEvent, section:RefObject<HTMLElement | null>) => {
+    e.preventDefault()
+    if (section.current) {
+      scrollFunction(section)
+    }
+  }
   
   return (
-    <div className='w-full min-h-screen mx-auto py-20 px-4 bg-zinc-800 text-zinc-50 flex flex-col gap-10  items-center justify-center'>
+    
+    <div ref={refs.aboutRef} className='w-full min-h-screen mx-auto py-20 px-4 bg-zinc-800 text-zinc-50 flex flex-col gap-10  items-center justify-center'>
       <div>
         <h2 className='text-3xl md:text-5xl text-center p-2 font-bold'>About Us</h2>
       </div>
@@ -19,7 +36,11 @@ export default function Gallery() {
           <p className='text-sm md:text-md'>We are a gym that is comitted to helping people reach their fitness goals. We offer a variety of programs and services to fit your needs.</p>
           <p className='text-sm'>We believe that everyone should have access to the benefits of exercise.</p>
             <Button variant={'secondary'} size={'lg'} className='bg-yellow-200 hover:bg-yellow-300 text-zinc-950'>
-              <Link href="#" className='w-full h-full flex items-center gap-2 justify-center'>
+              <Link 
+              onClick={(e) => handleContactClick(e,refs.contactRef)} 
+              href={refs.contactRef.current ? "#contact" : ""}
+               className='w-full h-full flex items-center gap-2 justify-center'
+               >
                   Join Us Now <span className='p-1 rounded-sm bg-primary-foreground'><MoveRight className='size-5 '/></span>
               </Link>
           </Button>

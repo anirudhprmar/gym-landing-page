@@ -1,10 +1,14 @@
-import React from 'react'
+import React, { RefObject } from 'react'
 import { Dumbbell } from 'lucide-react'
 import Image from 'next/image'
 
-export default function Feature() {
+interface refInfo{
+  featureRef?:RefObject<HTMLDivElement | null>
+}
+
+export default function Feature({featureRef}:refInfo) {
   return (
-    <div className='flex flex-col gap-20 p-10 min-h-screen md:p-20 bg-zinc-800 text-zinc-100 justify-center min-h-full items-center w-full '>
+    <div ref={featureRef} className='flex flex-col gap-20 p-10 min-h-screen md:p-20 bg-zinc-800 text-zinc-100 justify-center items-center w-full '>
       <div className=' gap-4 text-center'>
         <h3 className='text-3xl md:text-5xl font-bold'>Best Programs for You</h3>
       </div>

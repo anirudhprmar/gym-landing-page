@@ -1,10 +1,22 @@
-import React from 'react'
+import React, { RefObject } from 'react'
 import { Button } from './ui/button'
 import Link from 'next/link'
 import { MoveRight } from 'lucide-react'
 import BgHero from '../../public/bg/bgHero.png'
 
-export default function Hero() {
+interface scrollProps{
+  scrollFunction: (ref: React.RefObject<HTMLElement | null>) => void;
+  contactRef: React.RefObject<HTMLDivElement | null>;
+}
+
+export default function Hero({scrollFunction,contactRef}:scrollProps) {
+  const handleContactClick = (e:React.MouseEvent, section:RefObject<HTMLElement | null>) => {
+      e.preventDefault()
+      if (section.current) {
+        scrollFunction(section)
+      }
+    }
+
   return (
   <div className=' flex flex-col gap-5  text-zinc-100 justify-center min-h-screen w-full relative  '
     style={{
@@ -24,7 +36,10 @@ export default function Hero() {
         
         <div>
           <Button variant={'secondary'} size={'lg'} className='bg-yellow-200 hover:bg-yellow-300 text-zinc-950'>
-              <Link href="#" className='w-full h-full flex items-center gap-2'>
+              <Link 
+               onClick={(e) => handleContactClick(e,contactRef)} 
+              href={contactRef.current ? "#contact" : ""}
+              className='w-full h-full flex items-center gap-2'>
                   Explore More <span className='p-1 rounded-sm bg-primary-foreground'><MoveRight className='size-5 '/></span>
               </Link>
           </Button>

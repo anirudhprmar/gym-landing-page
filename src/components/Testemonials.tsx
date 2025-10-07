@@ -1,10 +1,15 @@
 import Image from "next/image";
 import { AvatarCircles } from "./ui/avatar-circles";
 import Link from "next/link";
+import { RefObject } from "react";
 
-export default function Testemonials() {
+interface refInfo{
+  testemonialRef?:RefObject<HTMLDivElement | null>
+}
+
+export default function Testemonials({testemonialRef}:refInfo) {
   return (
-    <div className="w-full min-h-screen bg-zinc-800 text-zinc-50 flex flex-col md:flex-row items-center justify-center gap-10 py-10 relative">
+    <div ref={testemonialRef} className="w-full min-h-screen bg-zinc-800 text-zinc-50 flex flex-col md:flex-row items-center justify-center gap-10 py-10 relative">
       <div className="flex flex-col items-center justify-around gap-10">
 
       <div className="flex flex-col items-center justify-center gap-4 max-w-90 md:max-w-full text-center">

@@ -1,10 +1,21 @@
 "use client"
 import Link from "next/link";
 import { Button } from "./ui/button";
-import { useEffect, useState } from "react";
+import { RefObject, useEffect, useState } from "react";
 import Image from "next/image";
 
-export default function Navbar() {
+interface AboutProps {
+  scrollFunction:(ref: RefObject<HTMLElement | null>) => void;
+  refs: {
+    about: RefObject<HTMLDivElement | null>;
+    program: RefObject<HTMLElement | null>;
+    testemonial: RefObject<HTMLElement | null>;
+    contact: RefObject<HTMLElement | null>;
+  }
+}
+
+
+export default function Navbar({scrollFunction,refs}:AboutProps) {
       const [hasScrolled, setHasScrolled] = useState(false);
 
       useEffect(() => {
@@ -25,6 +36,11 @@ export default function Navbar() {
     };
   }, []);
 
+  const handleNavClick = (e:React.MouseEvent, section:RefObject<HTMLElement | null>) => {
+    e.preventDefault()
+    scrollFunction(section)
+  }
+
   return (
     <header>
       <nav className={`flex items-center justify-around p-3 fixed top-0 w-full z-200 text-zinc-100 ${hasScrolled ? ' bg-transparent backdrop-blur-md ' : ''}`}>
@@ -37,19 +53,45 @@ export default function Navbar() {
           alt="logo"
           className="w-15 h-10 object-cover rounded-none"
           />
-            <p className="text-2xl cursor-pointer font-bold">C-n-C</p>
+            <p className="text-2xl cursor-pointer font-bold">
+              <Link href={'/'}>
+                C-n-C
+              </Link>
+              </p>
         </div>
 
         <ul className="hidden md:flex gap-10 text-md items-center justify-center">
-            <li className="cursor-pointer">About Us</li>
-            <li className="cursor-pointer">Programs</li>
-            <li className="cursor-pointer">Testimonials</li>
-            {/* <li></li    > */}
+            <li className="cursor-pointer">
+              <Link
+              onClick={(e) => handleNavClick(e, refs.about)}
+              href={refs.about.current ? "#about" : "#"}
+              >
+              About Us
+              </Link>
+              </li>
+            <li className="cursor-pointer">
+              <Link
+              href={refs.program.current ? "#programs" : "#"}
+              onClick={(e) => handleNavClick(e, refs.program)}
+              >
+              Programs
+              </Link>
+              </li>
+            <li className="cursor-pointer">
+              <Link href={refs.testemonial.current ? "#testemonials" : "#"}
+              onClick={(e) => handleNavClick(e, refs.testemonial)}
+              >
+              Testimonials
+              </Link>
+              </li>
         </ul>
 
         <div>
             <Button size={'sm'} variant={'default'} className="bg-yellow-200 hover:bg-yellow-300 border-0">
-                <Link href={"#"} className="text-zinc-900 text-lg">
+                <Link 
+               href={refs.contact.current ? "#contact" : "#"}
+              onClick={(e) => handleNavClick(e, refs.contact)} 
+                className="text-zinc-900 text-lg">
                 JOIN NOW
                 </Link>
             </Button>
