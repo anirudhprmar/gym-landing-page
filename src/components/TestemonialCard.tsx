@@ -4,7 +4,7 @@ import { cn } from '@/lib/utils'
 
 export default function TestemonialCard() {
   return (
-   <div className=" h-80 p-6 flex items-center justify-center">
+   <div className=" h-90 p-6 flex items-center justify-center">
     <CardStack items={CARDS}/>
     </div>
   )
@@ -46,7 +46,7 @@ const CARDS = [
     stars:"⭐⭐⭐⭐",
     content: (
       <p>
-        Very good gym with <Highlight>good space</Highlight> have separate Flore for weight training, cardio and CrossFit
+        Very good gym with <Highlight>good space</Highlight> have separate Floors for weight training, cardio and CrossFit
       </p>
     ),
   },

@@ -43,13 +43,13 @@ export default function ImageSlider() {
             }else{
                 setCurrentIndex(0);
             }
-        }, 3000);
+        }, 4500);
     },[images, currentIndex])
 
   return (
     <div className="max-h-fit flex items-center justify-center gap-4 ">
-        <button onClick={handlePrev} className="p-2 bg-yellow-50 text-black rounded-full"><ArrowLeft/></button>
-      <div className="relative w-68 h-90 md:w-120 md:h-150 overflow-hidden bg-yellow-200  rounded-md flex ">
+        {/* <button onClick={handlePrev} className="p-2 bg-yellow-50 text-black rounded-full"><ArrowLeft/></button> */}
+      <div className="relative w-68 h-90 md:w-120 md:h-150 overflow-hidden border-none  rounded-md flex ">
    <div
     className="flex transition-transform duration-300 ease-in-out"
     style={{ transform: `translateX(-${currentIndex * 100}%)` }}
@@ -66,7 +66,7 @@ export default function ImageSlider() {
     ))}
   </div>
       </div>
-        <button onClick={handleNext} className="p-2 bg-yellow-50 text-black rounded-full"><ArrowRight/></button>
+        {/* <button onClick={handleNext} className="p-2 bg-yellow-50 text-black rounded-full"><ArrowRight/></button> */}
     </div>
   )
 }
