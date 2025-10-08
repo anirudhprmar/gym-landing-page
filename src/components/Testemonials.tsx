@@ -2,6 +2,7 @@ import Image from "next/image";
 import { AvatarCircles } from "./ui/avatar-circles";
 import Link from "next/link";
 import { RefObject } from "react";
+import TestemonialCard from "./TestemonialCard";
 
 interface refInfo{
   testemonialRef?:RefObject<HTMLDivElement | null>
@@ -52,27 +53,7 @@ export default function Testemonials({testemonialRef}:refInfo) {
         className=" opacity-10 rotate absolute bottom-40 right-140"
         />
       </div>
-      <div className="bg-zinc-600 w-80 h-80 p-6 rounded-lg flex flex-col items-start justify-around gap-4  hover:scale-105 transition-transform duration-300 ease-in-out">
-        <Link href={"https://www.justdial.com/Gwalior/Crunch-n-Curves-The-Fitness-Club-Opposite-Well-Home-Decor-Near-Green-Mart-Sirol-Road-City-Centre/9999PX751-X751-140719140438-Y8M3_BZDET"} target="_blank" className="flex flex-col gap-4">
-        <div className="flex flex-col items-start justify-center gap-1">
-          <div className="flex items-center justify-center gap-2">
-          <Image
-          src={'/test.avif'}
-          height={50}
-          width={50}
-          alt="customer"
-          className="w-12 h-12 object-cover rounded-full inline mr-2"
-          />
-          <p className="text-bold text-xl">Jeetu</p>
-          </div>
-          <p className="text-sm">Happy Customer</p>
-          <p>⭐⭐⭐⭐⭐</p>
-        </div>
-        <div>
-          <p>{`"Best Gym in Gwalior city"`}</p>
-        </div>
-          </Link>
-      </div>
+      <TestemonialCard/>
     </div>
   )
 }
