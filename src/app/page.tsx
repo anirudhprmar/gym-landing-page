@@ -21,25 +21,26 @@ export default function Home() {
   }
 
   return (
-    <div className="flex flex-col min-h-screen w-full items-center justify-center mx-auto ">
-
-    <div className="flex flex-col min-h-screen w-full justify-center">
+    <main className="flex flex-col w-full bg-zinc-950 text-white overflow-x-hidden">
       <Navbar
-      scrollFunction={scrollToSection}
-      refs={{
-        about: aboutRef,
-        program: programsRef,
-        testemonial: testimonialsRef,
-        contact:contactRef
-      }}
+        scrollFunction={scrollToSection}
+        refs={{
+          about: aboutRef,
+          program: programsRef,
+          testemonial: testimonialsRef,
+          contact: contactRef
+        }}
       />
-      <Hero contactRef={contactRef} scrollFunction={scrollToSection}/>
-    </div>
 
-    <Gallery refs={{aboutRef,contactRef}} scrollFunction={scrollToSection}/>
-    <Feature featureRef={programsRef}/>
-    <Testemonials testemonialRef={testimonialsRef}/>
-    <Footer footerRef={contactRef}/>
-    </div>
+      <Hero contactRef={contactRef} scrollFunction={scrollToSection} />
+
+      <Gallery refs={{ aboutRef, contactRef }} scrollFunction={scrollToSection} />
+
+      <Feature featureRef={programsRef} />
+
+      <Testemonials testemonialRef={testimonialsRef} />
+
+      <Footer footerRef={contactRef} />
+    </main>
   );
 }

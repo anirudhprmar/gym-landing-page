@@ -1,53 +1,101 @@
+"use client"
 import React, { RefObject } from 'react'
 import { Button } from './ui/button'
 import Link from 'next/link'
-import { MoveRight } from 'lucide-react'
+import { MoveRight, ChevronDown } from 'lucide-react'
 import BgHero from '../../public/bg/bgHero.png'
+import { motion } from 'motion/react'
 
-interface scrollProps{
+interface scrollProps {
   scrollFunction: (ref: React.RefObject<HTMLElement | null>) => void;
   contactRef: React.RefObject<HTMLDivElement | null>;
 }
 
-export default function Hero({scrollFunction,contactRef}:scrollProps) {
-  const handleContactClick = (e:React.MouseEvent, section:RefObject<HTMLElement | null>) => {
-      e.preventDefault()
-      if (section.current) {
-        scrollFunction(section)
-      }
+export default function Hero({ scrollFunction, contactRef }: scrollProps) {
+  const handleContactClick = (e: React.MouseEvent, section: RefObject<HTMLElement | null>) => {
+    e.preventDefault()
+    if (section.current) {
+      scrollFunction(section)
     }
+  }
 
   return (
-  <div className=' flex flex-col gap-5  text-zinc-100 justify-center min-h-screen w-full relative  '
-    style={{
-    backgroundImage: `url(${BgHero.src})`,
-    backgroundSize: 'cover',
-    backgroundPosition: 'center',
-    backgroundRepeat: 'no-repeat'
-  }}
-  >
-    <div className='min-w-full h-full flex items-center bg-gradient-to-b from-[rgba(0,0,0,0.6)] to-[rgba(0,0,0,0.9)] absolute '></div>
+    <div className='relative flex flex-col items-center justify-center min-h-screen w-full overflow-hidden'
+    >
+      {/* Background Image with Overlay */}
+      <div
+        className='absolute inset-0 z-0'
+        style={{
+          backgroundImage: `url(${BgHero.src})`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat'
+        }}
+      >
+        <div className='absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-background'></div>
+        <div className='absolute inset-0 bg-grid-pattern opacity-20'></div>
+      </div>
 
-      <div className='flex flex-col gap-5 z-100 items-center justify-center text-center '>
-        <div className='flex flex-col gap-5 max-w-90 md:max-w-3xl'>
-          <h1 className='text-3xl md:text-6xl  font-extrabold '>YOUR FITNESS JOURNEY BEGINS HERE</h1>
-          <p className='text-sm md:text-lg '>Our state of the art facilities and expert trainers are here to help you achieve your fitness goals, no matter your starting point.</p>
-        </div>
-        
-        <div>
-          <Button variant={'secondary'} size={'lg'} className='bg-yellow-200 hover:bg-yellow-300 text-zinc-950'>
-              <Link 
-               onClick={(e) => handleContactClick(e,contactRef)} 
+      <div className='relative z-10 flex flex-col gap-8 items-center justify-center text-center px-4 max-w-5xl mx-auto mt-20'>
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          className='flex flex-col gap-4'
+        >
+          <span className='text-primary font-mono tracking-widest text-sm md:text-base uppercase'>
+            Redefine Your Limits
+          </span>
+          <h1 className='text-5xl md:text-7xl lg:text-8xl font-extrabold tracking-tight text-white leading-tight'>
+            FORGE YOUR <br />
+            <span className='text-transparent bg-clip-text bg-gradient-to-r from-primary to-white text-glow'>LEGACY</span>
+          </h1>
+          <p className='text-lg md:text-xl text-zinc-300 max-w-2xl mx-auto leading-relaxed'>
+            Experience the ultimate fitness evolution. State-of-the-art equipment, elite coaching, and a community that drives you forward.
+          </p>
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
+          className='flex flex-col sm:flex-row gap-4 w-full justify-center'
+        >
+          <Button
+            variant={'default'}
+            size={'lg'}
+            className='bg-primary text-primary-foreground hover:bg-primary/90 text-lg px-8 py-6 rounded-full font-bold transition-all hover:scale-105 shadow-[0_0_20px_rgba(var(--primary),0.5)]'
+            asChild
+          >
+            <Link
+              onClick={(e) => handleContactClick(e, contactRef)}
               href={contactRef.current ? "#contact" : ""}
-              className='w-full h-full flex items-center gap-2'>
-                  Explore More <span className='p-1 rounded-sm bg-primary-foreground'><MoveRight className='size-5 '/></span>
-              </Link>
+              className='flex items-center gap-2'
+            >
+              Start Your Journey <MoveRight className='w-5 h-5' />
+            </Link>
           </Button>
-        </div>
+          <Button
+            variant={'outline'}
+            size={'lg'}
+            className='border-zinc-700 text-white hover:bg-zinc-800 hover:text-white text-lg px-8 py-6 rounded-full font-medium backdrop-blur-sm'
+          >
+            View Programs
+          </Button>
+        </motion.div>
 
       </div>
 
-      
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 1, duration: 1 }}
+        className='absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce text-zinc-400'
+      >
+        <ChevronDown className='w-8 h-8' />
+      </motion.div>
+
     </div>
   )
 }

@@ -1,11 +1,12 @@
+"use client"
 import React from 'react'
 import { CardStack } from './ui/card-stack'
 import { cn } from '@/lib/utils'
 
 export default function TestemonialCard() {
   return (
-   <div className=" h-90 p-6 flex items-center justify-center">
-    <CardStack items={CARDS}/>
+    <div className="h-[20rem] w-full md:w-[25rem] flex items-center justify-center">
+      <CardStack items={CARDS} />
     </div>
   )
 }
@@ -20,7 +21,7 @@ export const Highlight = ({
   return (
     <span
       className={cn(
-        "font-bold bg-emerald-100 text-emerald-700 dark:bg-emerald-700/[0.2] dark:text-emerald-500 px-1 py-0.5",
+        "font-bold bg-primary/20 text-primary px-1 py-0.5 rounded-sm",
         className
       )}
     >
@@ -30,40 +31,40 @@ export const Highlight = ({
 };
 
 const CARDS = [
-  { 
-    id:1,
+  {
+    id: 1,
     name: "Jeetu",
-    stars:"⭐⭐⭐⭐",
+    designation: "Member since 2023",
     content: (
       <p>
-        <Highlight>Best Gym</Highlight> in Gwalior city
+        <Highlight>Best Gym</Highlight> in Gwalior city. The atmosphere is electric and pushes you to do your best every single day.
       </p>
     ),
   },
-  { 
-    id:2,
+  {
+    id: 2,
     name: "Puneet Mangal",
-    stars:"⭐⭐⭐⭐",
+    designation: "Fitness Enthusiast",
     content: (
       <p>
-        Very good gym with <Highlight>good space</Highlight> have separate Floors for weight training, cardio and CrossFit
+        Very good gym with <Highlight>good space</Highlight> have separate Floors for weight training, cardio and CrossFit. Exactly what I needed.
       </p>
     ),
   },
-  { 
-    id:3,
+  {
+    id: 3,
     name: "Mayank Sing Kushwah",
-    stars:"⭐⭐⭐⭐",
+    designation: "Bodybuilder",
     content: (
       <p>
-        Crunch N Curves has a wide range of products and services to cater to the varied requirements of their customers. The staff at this establishment are courteous and prompt at providing <Highlight>any assistance</Highlight>.
+        Crunch N Curves has a wide range of products and services. The staff are courteous and prompt at providing <Highlight>any assistance</Highlight>.
       </p>
     ),
   },
-  { 
-    id:4,
+  {
+    id: 4,
     name: "Siddhant Goswami",
-    stars:"⭐⭐⭐⭐",
+    designation: "Athlete",
     content: (
       <p>
         Good with all the basic equipments. <Highlight>Neat and clean</Highlight>. Good crowd with good trainer. Overall great gym if you are looking to workout nearby.

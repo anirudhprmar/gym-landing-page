@@ -6,10 +6,11 @@ import { motion } from "motion/react";
 let interval: any;
 
 type Card = {
-  id:number;
+  id: number;
   name: string;
+  designation?: string;
   content: React.ReactNode;
-  stars:string;
+  stars?: string;
 };
 
 export const CardStack = ({
@@ -46,7 +47,7 @@ export const CardStack = ({
         return (
           <motion.div
             key={card.id}
-            className="absolute dark:bg-black bg-white h-80 w-60 md:h-60 md:w-96 rounded-3xl p-4 shadow-xl border border-neutral-200 dark:border-white/[0.1]  shadow-black/[0.1] dark:shadow-white/[0.05] flex flex-col justify-around"
+            className="absolute bg-zinc-900 h-80 w-60 md:h-60 md:w-96 rounded-3xl p-6 shadow-xl border border-zinc-800 shadow-black/20 flex flex-col justify-between"
             style={{
               transformOrigin: "top center",
             }}
@@ -56,15 +57,15 @@ export const CardStack = ({
               zIndex: cards.length - index, //  decrease z-index for the cards that are behind
             }}
           >
-            <div className="font-normal text-neutral-700 dark:text-neutral-200">
+            <div className="font-normal text-zinc-300">
               {card.content}
             </div>
             <div>
-              <p className="text-neutral-500 font-medium dark:text-white">
+              <p className="text-white font-bold">
                 {card.name}
               </p>
-              <p className="text-neutral-400 font-normal dark:text-neutral-200">
-                {card.stars}
+              <p className="text-primary font-medium text-sm">
+                {card.designation || card.stars}
               </p>
             </div>
           </motion.div>

@@ -1,52 +1,87 @@
+"use client"
 import Link from 'next/link'
 import ImageSlider from './ImageSlider'
 import { Button } from './ui/button'
 import { MoveRight } from 'lucide-react'
 import React, { RefObject } from 'react'
+import { motion } from 'motion/react'
 
 interface AboutProps {
-  scrollFunction:(ref: RefObject<HTMLElement | null>) => void;
+  scrollFunction: (ref: RefObject<HTMLElement | null>) => void;
   refs: {
-    aboutRef?:RefObject<HTMLDivElement | null>
-  contactRef:RefObject<HTMLDivElement | null>
+    aboutRef?: RefObject<HTMLDivElement | null>
+    contactRef: RefObject<HTMLDivElement | null>
   }
 }
 
-export default function Gallery({scrollFunction,refs}:AboutProps) {
+export default function Gallery({ scrollFunction, refs }: AboutProps) {
 
-  const handleContactClick = (e:React.MouseEvent, section:RefObject<HTMLElement | null>) => {
+  const handleContactClick = (e: React.MouseEvent, section: RefObject<HTMLElement | null>) => {
     e.preventDefault()
     if (section.current) {
       scrollFunction(section)
     }
   }
-  
+
   return (
-    
-    <div ref={refs.aboutRef} className='w-full min-h-screen mx-auto py-20 px-4 bg-zinc-800 text-zinc-50 flex flex-col gap-10  items-center justify-center'>
-      <div>
-        <h2 className='text-3xl md:text-5xl text-center p-2 font-bold'>About Us</h2>
-      </div>
-      <div className='flex flex-col lg:flex-row gap-10 lg:gap-20 items-center justify-center'>
+    <section ref={refs.aboutRef} id="about" className='w-full min-h-screen py-24 px-6 bg-zinc-950 text-white flex flex-col items-center justify-center relative overflow-hidden'>
 
-        <ImageSlider />
+      {/* Background Gradient */}
+      <div className="absolute inset-0 bg-gradient-to-b from-zinc-950 via-zinc-900 to-zinc-950 pointer-events-none"></div>
 
-        <div className='flex flex-col gap-5 max-w-md text-center lg:text-left'>
-          <p className='font-bold text-3xl'>Get Ready to Reach your Fitness Goals</p>
-          <p className='text-sm md:text-md'>We are a gym that is comitted to helping people reach their fitness goals. We offer a variety of programs and services to fit your needs.</p>
-          <p className='text-sm'>We believe that everyone should have access to the benefits of exercise.</p>
-            <Button variant={'secondary'} size={'lg'} className='bg-yellow-200 hover:bg-yellow-300 text-zinc-950'>
-              <Link 
-              onClick={(e) => handleContactClick(e,refs.contactRef)} 
-              href={refs.contactRef.current ? "#contact" : ""}
-               className='w-full h-full flex items-center gap-2 justify-center'
-               >
-                  Join Us Now <span className='p-1 rounded-sm bg-primary-foreground'><MoveRight className='size-5 '/></span>
+      <div className='container mx-auto z-10 flex flex-col lg:flex-row items-center gap-16'>
+
+        <motion.div
+          initial={{ opacity: 0, x: -50 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+          className='flex-1 w-full max-w-xl'
+        >
+          <ImageSlider />
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, x: 50 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+          className='flex-1 flex flex-col gap-8 text-center lg:text-left'
+        >
+          <div>
+            <h2 className='text-primary font-mono tracking-widest uppercase mb-2'>Who We Are</h2>
+            <h3 className='text-4xl md:text-5xl font-extrabold leading-tight'>
+              MORE THAN JUST <br /> A <span className='text-transparent bg-clip-text bg-gradient-to-r from-white to-zinc-500'>GYM</span>
+            </h3>
+          </div>
+
+          <div className='space-y-4 text-zinc-400 text-lg leading-relaxed'>
+            <p>
+              We are a sanctuary for those who refuse to settle. Our mission is to provide the environment, equipment, and expertise you need to break through your limits.
+            </p>
+            <p>
+              Whether you&apos;re a beginner taking your first step or an athlete chasing a new PR, our community is here to support your journey every step of the way.
+            </p>
+          </div>
+
+          <div className='pt-4'>
+            <Button
+              size={'lg'}
+              className='bg-primary text-primary-foreground hover:bg-primary/90 text-lg px-8 py-6 rounded-full font-bold transition-all hover:scale-105 shadow-[0_0_20px_rgba(var(--primary),0.4)]'
+              asChild
+            >
+              <Link
+                onClick={(e) => handleContactClick(e, refs.contactRef)}
+                href={refs.contactRef.current ? "#contact" : ""}
+                className='flex items-center gap-2'
+              >
+                Join The Movement <MoveRight className='w-5 h-5' />
               </Link>
-          </Button>
-        </div>
+            </Button>
+          </div>
+        </motion.div>
 
       </div>
-    </div>
+    </section>
   )
 }
